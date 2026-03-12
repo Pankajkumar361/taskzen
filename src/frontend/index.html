@@ -3,11 +3,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TaskZen</title>
+
     <link rel="icon" type="image/jpeg" href="/assets/uploads/1768467809878-1.jpg" />
     <link rel="apple-touch-icon" href="/assets/uploads/1768467809878-1.jpg" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000">
+
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Service Worker Register -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("service-worker.js")
+            .then(function (registration) {
+              console.log("Service Worker registered:", registration.scope);
+            })
+            .catch(function (error) {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
+
   </body>
 </html>
