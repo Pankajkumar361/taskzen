@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 16 0.005 250;
+    --foreground: 92 0.008 60;
+    --card: 19 0.006 250;
+    --card-foreground: 92 0.008 60;
+    --popover: 19 0.006 250;
+    --popover-foreground: 92 0.008 60;
+    --primary: 62 0.14 250;
+    --primary-foreground: 14 0.004 250;
+    --secondary: 24 0.006 250;
+    --secondary-foreground: 80 0.008 60;
+    --muted: 22 0.006 250;
+    --muted-foreground: 55 0.01 250;
+    --accent: 62 0.14 250;
+    --accent-foreground: 14 0.004 250;
+    --destructive: 52 0.18 25;
+    --destructive-foreground: 95 0.005 60;
+    --border: 26 0.008 250;
+    --input: 26 0.008 250;
+    --ring: 62 0.14 250;
+    --radius: 0.5rem;
+    --chart-1: 62 0.14 250;
+    --chart-2: 72 0.14 200;
+    --chart-3: 65 0.1 145;
+    --chart-4: 60 0.08 100;
+    --chart-5: 55 0.12 50;
+    --sidebar: 19 0.006 250;
+    --sidebar-foreground: 92 0.008 60;
+    --sidebar-primary: 62 0.14 250;
+    --sidebar-primary-foreground: 14 0.004 250;
+    --sidebar-accent: 24 0.006 250;
+    --sidebar-accent-foreground: 80 0.008 60;
+    --sidebar-border: 26 0.008 250;
+    --sidebar-ring: 62 0.14 250;
+  }
+  .dark {
+    --background: 12 0.01 250;
+    --foreground: 92 0.008 60;
+    --card: 16 0.012 250;
+    --card-foreground: 92 0.008 60;
+    --popover: 16 0.012 250;
+    --popover-foreground: 92 0.008 60;
+    --primary: 65 0.16 250;
+    --primary-foreground: 10 0.002 250;
+    --secondary: 22 0.012 250;
+    --secondary-foreground: 85 0.008 60;
+    --muted: 20 0.01 250;
+    --muted-foreground: 60 0.012 250;
+    --accent: 65 0.16 250;
+    --accent-foreground: 10 0.002 250;
+    --destructive: 52 0.2 25;
+    --destructive-foreground: 95 0.005 60;
+    --border: 24 0.012 250;
+    --input: 24 0.012 250;
+    --ring: 65 0.16 250;
+    --chart-1: 65 0.16 250;
+    --chart-2: 72 0.16 200;
+    --chart-3: 68 0.12 145;
+    --chart-4: 63 0.1 100;
+    --chart-5: 58 0.14 50;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .task-completed {
+    text-decoration: line-through;
+    opacity: 0.45;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .pomodoro-ring {
+    transition: stroke-dashoffset 1s linear;
+  }
+}
